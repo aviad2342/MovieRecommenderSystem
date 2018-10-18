@@ -1,0 +1,2 @@
+D:\תיקיות\לימודים\projects\c#\MovieRecommenderSystem-master\MovieRecommenderSystem\bin\Debug\MovieRecommenderSystem.exe.config
+D:\תיקיות\לימודים\projects\c#\MovieRecommenderSystem-master\MovieRecommenderSystem\obj\Debug\MovieRecommenderSystem.csproj.ResolveComReference.cache

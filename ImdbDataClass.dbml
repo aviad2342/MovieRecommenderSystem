@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="IMDB" Class="ImdbDataClassDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=imdb.cgvevodz6pfv.eu-west-1.rds.amazonaws.com,1433;Initial Catalog=IMDB;Persist Security Info=True;User ID=IMDB_admin" SettingsObjectName="MovieRecommenderSystem.Properties.Settings" SettingsPropertyName="IMDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Genre" Member="Genres">
+    <Type Name="Genre">
+      <Column Name="genreId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="genreName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Genre_MovieGenre" Member="MovieGenres" ThisKey="genreId" OtherKey="genreId" Type="MovieGenre" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Movie" Member="Movies">
+    <Type Name="Movie">
+      <Column Name="movieId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="movieName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="publishYear" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="Movie_MovieGenre" Member="MovieGenres" ThisKey="movieId" OtherKey="movieId" Type="MovieGenre" />
+      <Association Name="Movie_UserMovieRank" Member="UserMovieRanks" ThisKey="movieId" OtherKey="movieId" Type="UserMovieRank" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MovieGenre" Member="MovieGenres">
+    <Type Name="MovieGenre">
+      <Column Name="movieId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="genreId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Genre_MovieGenre" Member="Genre" ThisKey="genreId" OtherKey="genreId" Type="Genre" IsForeignKey="true" />
+      <Association Name="Movie_MovieGenre" Member="Movie" ThisKey="movieId" OtherKey="movieId" Type="Movie" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TwitterUser" Member="TwitterUsers">
+    <Type Name="TwitterUser">
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="userName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="followNum" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="TwitterUser_UserMovieRank" Member="UserMovieRanks" ThisKey="userId" OtherKey="userId" Type="UserMovieRank" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserMovieRank" Member="UserMovieRanks">
+    <Type Name="UserMovieRank">
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="movieId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="movieRank" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="Movie_UserMovieRank" Member="Movie" ThisKey="movieId" OtherKey="movieId" Type="Movie" IsForeignKey="true" />
+      <Association Name="TwitterUser_UserMovieRank" Member="TwitterUser" ThisKey="userId" OtherKey="userId" Type="TwitterUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

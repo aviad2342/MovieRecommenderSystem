@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ImdbDataClass">
+  <DataContextMoniker Name="/ImdbDataClassDataContext" />
+  <nestedChildShapes>
+    <classShape Id="377036c1-05c9-4ccd-a786-941f2b5d2922" absoluteBounds="0.75, 0.875, 2, 1.1401595052083335">
+      <DataClassMoniker Name="/ImdbDataClassDataContext/Genre" />
+      <nestedChildShapes>
+        <elementListCompartment Id="efc0dd0f-efae-4489-b586-d1919680de7b" absoluteBounds="0.765, 1.335, 1.9700000000000002, 0.58015950520833326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9799bad4-dff1-45a9-b149-43006bac88c8" absoluteBounds="0.75, 2.75, 2, 1.3170800781250005">
+      <DataClassMoniker Name="/ImdbDataClassDataContext/Movie" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5fcb69bc-a2c6-48a5-86f8-3afff89dcad8" absoluteBounds="0.765, 3.21, 1.9700000000000002, 0.757080078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="85b7f202-ea7e-4085-ab5b-4f69ed2f072e" absoluteBounds="3.5, 2.875, 2, 1.1401595052083335">
+      <DataClassMoniker Name="/ImdbDataClassDataContext/MovieGenre" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9f6dfe05-59ea-403f-9361-5d2491ae9f11" absoluteBounds="3.515, 3.335, 1.9700000000000002, 0.58015950520833326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d07e0c82-73b0-4cf0-943a-aa6787138575" absoluteBounds="0.75, 5.5, 2, 1.3170800781250005">
+      <DataClassMoniker Name="/ImdbDataClassDataContext/TwitterUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8f2dbff6-8e65-4a99-aee4-34c7a9602741" absoluteBounds="0.765, 5.96, 1.9700000000000002, 0.757080078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="89ee9593-a9fe-4514-9ace-95fee2dcaca9" absoluteBounds="3.5, 0.75, 2, 1.317080078125">
+      <DataClassMoniker Name="/ImdbDataClassDataContext/UserMovieRank" />
+      <nestedChildShapes>
+        <elementListCompartment Id="98525b3d-274d-4cc6-acf8-26d1a2fff9d5" absoluteBounds="3.515, 1.21, 1.9700000000000002, 0.757080078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.01515950520833); (3.125 : 2.39015950520833); (3.125 : 2.5); (3.25357443490112 : 2.62857443490112 : JumpStart); (3.37142556509888 : 2.74642556509888 : JumpEnd); (3.5 : 2.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ImdbDataClassDataContext/Genre/Genre_MovieGenre" />
+      <nodes>
+        <classShapeMoniker Id="377036c1-05c9-4ccd-a786-941f2b5d2922" />
+        <classShapeMoniker Id="85b7f202-ea7e-4085-ab5b-4f69ed2f072e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.47633225260417); (3.22916666666667 : 3.47633225260417 : JumpStart); (3.39583333333333 : 3.47633225260417 : JumpEnd); (3.5 : 3.47633225260417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ImdbDataClassDataContext/Movie/Movie_MovieGenre" />
+      <nodes>
+        <classShapeMoniker Id="9799bad4-dff1-45a9-b149-43006bac88c8" />
+        <classShapeMoniker Id="85b7f202-ea7e-4085-ab5b-4f69ed2f072e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.81180044981971); (3.25357443490112 : 2.30822601491859 : JumpStart); (3.37142556509888 : 2.19037488472083 : JumpEnd); (3.4375 : 2.12430044981971); (3.4375 : 2.129580078125); (3.5 : 2.067080078125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ImdbDataClassDataContext/Movie/Movie_UserMovieRank" />
+      <nodes>
+        <classShapeMoniker Id="9799bad4-dff1-45a9-b149-43006bac88c8" />
+        <classShapeMoniker Id="89ee9593-a9fe-4514-9ace-95fee2dcaca9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.56180044981971); (3.3125 : 4.99930044981971); (3.3125 : 1.3772880390625); (3.5 : 1.3772880390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ImdbDataClassDataContext/TwitterUser/TwitterUser_UserMovieRank" />
+      <nodes>
+        <classShapeMoniker Id="d07e0c82-73b0-4cf0-943a-aa6787138575" />
+        <classShapeMoniker Id="89ee9593-a9fe-4514-9ace-95fee2dcaca9" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
